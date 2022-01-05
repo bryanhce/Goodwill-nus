@@ -1,0 +1,10 @@
+.dashboard-boxes {
+  display: flex;
+  display: column;
+  margin-top: 1rem;
+}
+
+.dashboard-charts {
+  padding-left: 2rem;
+  margin-left: 2rem;
+}

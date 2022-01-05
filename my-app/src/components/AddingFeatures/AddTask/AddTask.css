@@ -1,0 +1,68 @@
+.add-task {
+  margin: 2rem;
+  text-align: center;
+}
+
+.add-task input {
+  width: 250px;
+  height: 50px;
+  padding-left: 20px;
+  font-size: 1.7rem;
+  border-bottom: 1px solid black !important;
+
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  background-color: transparent;
+  color: black;
+}
+
+.add-task input::placeholder {
+  color: silver;
+  font-style: oblique;
+}
+
+.add-task input:focus {
+  outline: none;
+  /* removes the outline of the textbox when user clicks on it */
+}
+
+.add-task input:hover {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+.add-task input:active {
+  outline: none;
+  border: none;
+}
+
+.add-task-button {
+  font-weight: 100;
+  font-size: 35px;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 25px;
+  color: black;
+}
+
+.add-task-button:hover {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+.add-task-button:active {
+  outline: none;
+  border: none;
+}
+
+.add-task-button:focus {
+  outline: none;
+}

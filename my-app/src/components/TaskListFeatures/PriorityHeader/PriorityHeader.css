@@ -1,0 +1,19 @@
+.pri-header {
+  margin: 0;
+  padding-left: 1rem;
+  text-align: left;
+  font-style: oblique;
+  color: #3a3333;
+}
+
+.taskList-priorityHigh {
+  background: linear-gradient(120deg, #e4a0a1 0%, #e4a0a1 100%);
+}
+
+.taskList-priorityMed {
+  background: linear-gradient(120deg, #ccb66d 0%, #ccb66d 100%);
+}
+
+.taskList-priorityLow {
+  background: linear-gradient(120deg, #65ad7b 0%, #65ad7b 100%);
+}

@@ -1,0 +1,25 @@
+.App {
+  text-align: left;
+}
+
+.App-body {
+  background-image: linear-gradient(0deg, #7bccc3 1%, #efd9ce 20%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.editors {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+
+.hr-tag {
+  width: 100%;
+  border-color: #4d3535;
+  background-color: #4d3535;
+}

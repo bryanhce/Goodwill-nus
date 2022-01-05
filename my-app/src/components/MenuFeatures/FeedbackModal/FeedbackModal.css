@@ -1,0 +1,88 @@
+.feedback-popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  position: fixed;
+  top: 20vh;
+  left: 10%;
+  width: 80%;
+  height: 70%;
+  z-index: 101;
+  overflow: hidden;
+}
+
+.feedback-header {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.closemodal {
+  font-size: 2.5rem;
+  position: absolute;
+  right: 5%;
+  padding-top: 0.5rem;
+}
+
+.feedback-popup hr {
+  width: 60%;
+  margin-top: 0;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  width: 50%;
+  height: 80%;
+}
+
+.feedback-form-textarea {
+  border: 3px solid slategrey;
+  text-shadow: 0px 0px 0px transparent;
+  background-color: white;
+  font-size: 1.2rem;
+  height: 80%;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  resize: none;
+  margin-bottom: 2rem;
+}
+
+.feedback-form-textarea {
+  outline: none;
+}
+
+.feedback-form-button {
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 40%;
+}
+
+.feedback-form-button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}

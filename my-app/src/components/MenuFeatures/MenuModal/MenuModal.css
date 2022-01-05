@@ -1,0 +1,17 @@
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  background: #efd9ce;
+
+  position: fixed;
+  width: 20%;
+  height: 100%;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.shaded {
+  background: rgba(243, 240, 240, 0.75) !important;
+}

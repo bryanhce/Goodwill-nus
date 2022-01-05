@@ -1,0 +1,11 @@
+.menu-item {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu-item-hr {
+  width: 100%;
+  color: black;
+}

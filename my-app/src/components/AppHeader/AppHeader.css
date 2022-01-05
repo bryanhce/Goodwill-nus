@@ -1,0 +1,34 @@
+.app-header {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  width: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.app-header__goodwill-icon {
+  margin-top: -10%;
+  width: 15rem;
+  height: 15rem;
+}
+
+.icon-list {
+  position: absolute;
+  font-size: 5rem;
+  left: 2%;
+  margin-top: 0.7rem;
+  cursor: pointer;
+  color: #4d3535;
+}
+
+.header-date {
+  position: absolute;
+  right: 2%;
+  margin-top: 0.7rem;
+  font-size: 35px;
+  color: #4d3535;
+  /* color: #fc2929; */
+}
