@@ -5,26 +5,28 @@ import {
   withGoogleMap,
   Marker,
 } from "react-google-maps";
-import { Border } from "victory";
 
 import "./Map.css";
 
-const Map = () => {
+const Map = (props) => {
   return (
     <GoogleMap
       defaultZoom={16}
       defaultCenter={{ lat: 1.3062703, lng: 103.771012 }} //nus utwon
     >
       {/* dummy data */}
-      <Marker key={1} position={{ lat: 1.3052017, lng: 103.7717158 }} />
+      <Marker key={0} position={{ lat: 1.3052017, lng: 103.7717158 }} />
       {/* utr */}
+
+      <Marker key={props.helpRequests[0].requestId} position={props.helpRequests[0].location} />
+
     </GoogleMap>
   );
 };
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
-const CompleteMap = () => {
+const CompleteMap = (props) => {
   return (
     <div className="completeMap__border">
       <WrappedMap
@@ -32,6 +34,7 @@ const CompleteMap = () => {
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
+        helpRequests={props.helpRequests}
       />
     </div>
   );
