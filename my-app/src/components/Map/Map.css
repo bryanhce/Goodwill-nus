@@ -1,0 +1,6 @@
+.completeMap__border {
+  /* border-radius: 50%; */
+  height: 100vh;
+  width: 70vw;
+  display: inline-block;
+}
