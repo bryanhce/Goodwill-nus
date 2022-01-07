@@ -7,11 +7,16 @@ import {
   InfoWindow,
 } from "react-google-maps";
 import GeneralButton from "../AssistantFeatures/GeneralButton/GeneralButton";
+import ResponseModal from "./ResponseModal/ResponseModal";
 
 import "./Map.css";
 
 const Map = (props) => {
   const [selectedRequest, setSelectedRequest] = useState(null);
+  const [isResponseVisible, setResponseVisible] = useState(false); //change back to false
+
+  const showResponseHandler = () => setResponseVisible(true);
+  const hideResponseHandler = () => setResponseVisible(false);
 
   return (
     <GoogleMap
@@ -38,9 +43,17 @@ const Map = (props) => {
             <h2>{selectedRequest.title}</h2>
             <h3>Time needed: {selectedRequest.timeNeeded}</h3>
             <p>{selectedRequest.description}</p>
-            <GeneralButton onClick={() => console.log('hello')} />
+            <GeneralButton onClick={showResponseHandler} />
           </div>
         </InfoWindow>
+      )}
+      {isResponseVisible && (
+        <ResponseModal
+          hideResponseHandler={hideResponseHandler}
+          title={selectedRequest.title}
+          timeNeeded={selectedRequest.timeNeeded}
+          description={selectedRequest.description}
+        />
       )}
     </GoogleMap>
   );

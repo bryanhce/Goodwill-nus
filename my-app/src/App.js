@@ -27,7 +27,7 @@ const App = () => {
       description: "This box is really heavy! Anyone free to lend a hand bringing this over to USC?",
       timeNeeded: "5 minutes",
       location: { lat: 1.3053013, lng: 103.7716153 },
-      isAccepted: false
+      isAccepted: false,
     },
     {
       requestId: 2,
@@ -35,7 +35,7 @@ const App = () => {
       description: "I have this project due tomorrow but I'm struggling! Is there anyone with experience?",
       timeNeeded: "50 minutes",
       location: { lat: 1.3063043, lng: 103.7701211 },
-      isAccepted: false
+      isAccepted: false,
     },
     {
       requestId: 3,
