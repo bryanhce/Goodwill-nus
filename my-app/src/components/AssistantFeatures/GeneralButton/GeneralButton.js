@@ -6,6 +6,7 @@ const GeneralButton = (props) => {
     <button
       className={`general-button ${props.className}`}
       type={`${props.type}`}
+      onClick={props.onClick}
     >
       {props.buttonTitle}
     </button>

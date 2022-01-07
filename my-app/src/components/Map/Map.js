@@ -6,6 +6,7 @@ import {
   Marker,
   InfoWindow,
 } from "react-google-maps";
+import GeneralButton from "../AssistantFeatures/GeneralButton/GeneralButton";
 
 import "./Map.css";
 
@@ -37,6 +38,7 @@ const Map = (props) => {
             <h2>{selectedRequest.title}</h2>
             <h3>Time needed: {selectedRequest.timeNeeded}</h3>
             <p>{selectedRequest.description}</p>
+            <GeneralButton onClick={() => console.log('hello')} />
           </div>
         </InfoWindow>
       )}
