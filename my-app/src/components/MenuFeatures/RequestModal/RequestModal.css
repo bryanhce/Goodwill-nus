@@ -1,0 +1,83 @@
+.request-popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+
+  position: fixed;
+  top: 20vh;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  height: 70%;
+  z-index: 101;
+  overflow: scroll;
+}
+
+.request-header {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.closemodal {
+  font-size: 2.5rem;
+  position: absolute;
+  right: 5%;
+  padding-top: 0.5rem;
+}
+
+.request-popup hr {
+  width: 60%;
+  margin-top: 0;
+}
+
+.singleField {
+  width: 100%;
+}
+
+.singleField-subheader {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.singleField-input {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.time-required-dropdown {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.time-input {
+  margin-top: -1.5rem;
+}
+
+.location-dropdown {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.request-content {
+  display: flex;
+  width: 65%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.post-button:after {
+  height: 3rem !important;
+}

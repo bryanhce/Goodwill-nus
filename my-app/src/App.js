@@ -20,13 +20,15 @@ library.add(faTimes, faPlus, faList, faStop, faCheckSquare, faFilter);
 const App = () => {
   //states
   const [isMenuPopUpVisible, setMenuPopUpVisible] = useState(false);
-  const [helpRequests, setHelpRequests] = useState([{
-    requestId: 1,
-    title: 'Help',
-    description: 'Please help',
-    timeNeeded: '15 minutes',
-    location: { lat: 1.3053013, lng: 103.7716153 }
-  }]);
+  const [helpRequests, setHelpRequests] = useState([
+    {
+      requestId: 1,
+      title: "Help",
+      description: "Please help",
+      timeNeeded: "15 minutes",
+      location: { lat: 1.3053013, lng: 103.7716153 },
+    },
+  ]);
 
   //handlers
   const showMenuHandler = () => {
@@ -37,12 +39,17 @@ const App = () => {
     setMenuPopUpVisible(false);
   };
 
-
   return (
     <div className="App">
       <div className="App-body">
         <AppHeader onShowMenu={showMenuHandler} />
-        {isMenuPopUpVisible && <MenuModal onCloseMenu={hideMenuHandler} />}
+        {isMenuPopUpVisible && (
+          <MenuModal
+            onCloseMenu={hideMenuHandler}
+            setHelpRequests={setHelpRequests}
+            helpRequests={helpRequests}
+          />
+        )}
         <CompleteMap helpRequests={helpRequests} />
       </div>
     </div>
