@@ -76,7 +76,7 @@ const RequestModal = (props) => {
   getLocation();
   var locationValue = { lat: latValue, lng: lngValue };
 
-  async function requestSubmit(event) {
+  function requestSubmit(event) {
     event.preventDefault();
     if (event.target[3].value !== "current") {
       geocode(event.target[3].value, (error, { latitude, longitude } = {}) => {
@@ -85,26 +85,32 @@ const RequestModal = (props) => {
           setLatValue(1.3062703);
           setLngValue(103.771012);
         } else {
-          setLatValue((latValue) => latitude);
-          setLngValue((lngValue) => longitude);
+          setLatValue((latValue) => latValue * 0 + latitude);
+          setLngValue((lngValue) => lngValue * 0 + longitude);
+          locationValue = { lat: latitude, lng: longitude };
+          const request = {
+            requestId: Math.floor(Math.random() * 100),
+            title: event.target[0].value,
+            description: event.target[1].value,
+            timeNeeded: event.target[2].value,
+            location: locationValue,
+          };
+          console.log(request);
+          props.setHelpRequests((prevState) => [...prevState, request]);
         }
-        locationValue = { lat: latValue, lng: lngValue };
-        console.log(locationValue);
       });
-      setTimeout(() => {
-        locationValue = { lat: latValue, lng: lngValue };
-        const request = {
-          requestId: Math.floor(Math.random() * 100),
-          title: event.target[0].value,
-          description: event.target[1].value,
-          timeNeeded: event.target[2].value,
-          location: locationValue,
-        };
-        console.log(request);
-        props.setHelpRequests((prevState) => [...prevState, request]);
-      }, 5000);
-      // geocode(event.target[3].value, () => {});
-      // locationValue = event.target[3].value;
+    } else {
+      getLocation();
+      locationValue = { lat: latValue, lng: lngValue };
+      const request = {
+        requestId: Math.floor(Math.random() * 100),
+        title: event.target[0].value,
+        description: event.target[1].value,
+        timeNeeded: event.target[2].value,
+        location: locationValue,
+      };
+      console.log(request);
+      props.setHelpRequests((prevState) => [...prevState, request]);
     }
   }
 
