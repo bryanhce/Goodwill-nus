@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Goodwill-nus/static/css/main.ba676ff8.css",
+    "main.js": "/Goodwill-nus/static/js/main.f3f0a93b.js",
+    "static/js/787.cfd8f164.chunk.js": "/Goodwill-nus/static/js/787.cfd8f164.chunk.js",
+    "static/media/thorr.jpeg": "/Goodwill-nus/static/media/thorr.7d73bcec670ed9ec5d39.jpeg",
+    "static/media/blackwidow.webp": "/Goodwill-nus/static/media/blackwidow.26af4f45fb1540f65cec.webp",
+    "static/media/GoodWill.png": "/Goodwill-nus/static/media/GoodWill.4c5bfc47a4ed54b32a36.png",
+    "index.html": "/Goodwill-nus/index.html",
+    "main.ba676ff8.css.map": "/Goodwill-nus/static/css/main.ba676ff8.css.map",
+    "main.f3f0a93b.js.map": "/Goodwill-nus/static/js/main.f3f0a93b.js.map",
+    "787.cfd8f164.chunk.js.map": "/Goodwill-nus/static/js/787.cfd8f164.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba676ff8.css",
+    "static/js/main.f3f0a93b.js"
+  ]
+}
