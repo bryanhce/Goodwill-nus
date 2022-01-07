@@ -4,7 +4,7 @@ import {
   withScriptjs,
   withGoogleMap,
   Marker,
-  InfoWindow
+  InfoWindow,
 } from "react-google-maps";
 
 import "./Map.css";
@@ -17,21 +17,17 @@ const Map = (props) => {
       defaultZoom={16}
       defaultCenter={{ lat: 1.3062703, lng: 103.771012 }} //nus utwon
     >
-      {/* dummy data */}
-      <Marker key={0} position={{ lat: 1.3052017, lng: 103.7717158 }} />
-      {/* utr */}
-
       {props.helpRequests.map((request) => (
-        <Marker 
-          key={request.requestId} 
-          position={request.location} 
+        <Marker
+          key={request.requestId}
+          position={request.location}
           onClick={() => {
             setSelectedRequest(request);
-          }} 
-          />
+          }}
+        />
       ))}
       {selectedRequest && (
-        <InfoWindow 
+        <InfoWindow
           position={selectedRequest.location}
           onCloseClick={() => {
             setSelectedRequest(null);

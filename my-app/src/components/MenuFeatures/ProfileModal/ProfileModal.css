@@ -34,3 +34,36 @@
   width: 60%;
   margin-top: 0;
 }
+
+.profile-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.profile-image-container {
+  border-radius: 50%;
+  width: 30rem;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-image {
+  margin-left: -30%;
+}
+
+.profile-name {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.profile-email {
+  margin-bottom: 2rem;
+}
