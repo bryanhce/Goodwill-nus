@@ -1,36 +1,101 @@
-.progress-popup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  
-    position: fixed;
-    top: 20vh;
-    left: 10%;
-    right: 10%;
-    width: 80%;
-    height: 70%;
-    z-index: 101;
-    overflow: scroll;
-  }
-  
-  .progress-header {
-    font-family: "Open Sans", sans-serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .closemodal {
-    font-size: 2.5rem;
-    position: absolute;
-    right: 5%;
-    padding-top: 0.5rem;
-  }
-  
-  .progress-popup hr {
-    width: 60%;
-    margin-top: 0;
-  }
+.response-popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  position: fixed;
+  top: 20vh;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  height: 70%;
+  z-index: 101;
+  overflow: scroll;
+}
+
+.response-header {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.closemodal {
+  font-size: 2.5rem;
+  position: absolute;
+  right: 5%;
+  padding-top: 0.5rem;
+}
+
+.response-popup hr {
+  width: 60%;
+  margin-top: 0;
+}
+
+.response-popup hr {
+  width: 60%;
+  margin-top: 0;
+}
+
+.response-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.response-content-title {
+  font-size: 2.5rem;
+  text-decoration: underline;
+}
+
+.response-content-description-title {
+  margin-top: -1rem;
+}
+
+.response-content-description {
+  font-size: 1.5rem;
+  margin-top: -1rem;
+  margin-bottom: 3rem;
+}
+
+.response-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.issuer-img {
+  margin-left: -85%;
+  width: 41rem;
+  height: 21rem;
+}
+
+.issuer-img-container {
+  border-radius: 50%;
+  width: 15rem;
+  height: 15rem;
+  overflow: hidden;
+  position: relative;
+  left: 10%;
+}
+
+.issuer-details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.issuer-name {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-left: 20%;
+  margin-top: 1rem;
+}
