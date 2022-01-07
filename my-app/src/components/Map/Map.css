@@ -8,3 +8,7 @@
 div {
   color: black; /* InfoWindow text color */
 }
+
+.infoWindow-button:after {
+  height: 3rem !important;
+}

@@ -42,8 +42,12 @@ const Map = (props) => {
           <div>
             <h2>{selectedRequest.title}</h2>
             <h3>Time needed: {selectedRequest.timeNeeded}</h3>
-            <p>{selectedRequest.description}</p>
-            <GeneralButton onClick={showResponseHandler} />
+            <GeneralButton
+              onClick={showResponseHandler}
+              className="infoWindow-button"
+              buttonTitle="View"
+            />
+            <br />
           </div>
         </InfoWindow>
       )}
@@ -53,6 +57,9 @@ const Map = (props) => {
           title={selectedRequest.title}
           timeNeeded={selectedRequest.timeNeeded}
           description={selectedRequest.description}
+          isAccepted={selectedRequest.isAccepted}
+          request={selectedRequest}
+          removeAcceptedHandler={props.removeAcceptedHandler}
         />
       )}
     </GoogleMap>
@@ -70,6 +77,7 @@ const CompleteMap = (props) => {
         containerElement={<div style={{ height: `400px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
         helpRequests={props.helpRequests}
+        removeAcceptedHandler={props.removeAcceptedHandler}
       />
     </div>
   );
