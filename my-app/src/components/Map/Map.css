@@ -4,3 +4,7 @@
   width: 70vw;
   display: inline-block;
 }
+
+div {
+  color: black; /* InfoWindow text color */
+}

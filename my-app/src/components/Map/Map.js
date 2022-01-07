@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   GoogleMap,
   withScriptjs,
   withGoogleMap,
   Marker,
+  InfoWindow
 } from "react-google-maps";
 
 import "./Map.css";
 
 const Map = (props) => {
+  const [selectedRequest, setSelectedRequest] = useState(null);
+
   return (
     <GoogleMap
       defaultZoom={16}
@@ -18,8 +21,29 @@ const Map = (props) => {
       <Marker key={0} position={{ lat: 1.3052017, lng: 103.7717158 }} />
       {/* utr */}
 
-      <Marker key={props.helpRequests[0].requestId} position={props.helpRequests[0].location} />
-
+      {props.helpRequests.map((request) => (
+        <Marker 
+          key={request.requestId} 
+          position={request.location} 
+          onClick={() => {
+            setSelectedRequest(request);
+          }} 
+          />
+      ))}
+      {selectedRequest && (
+        <InfoWindow 
+          position={selectedRequest.location}
+          onCloseClick={() => {
+            setSelectedRequest(null);
+          }}
+        >
+          <div>
+            <h2>{selectedRequest.title}</h2>
+            <h3>Time needed: {selectedRequest.timeNeeded}</h3>
+            <p>{selectedRequest.description}</p>
+          </div>
+        </InfoWindow>
+      )}
     </GoogleMap>
   );
 };

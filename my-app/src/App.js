@@ -22,10 +22,16 @@ const App = () => {
   const [isMenuPopUpVisible, setMenuPopUpVisible] = useState(false);
   const [helpRequests, setHelpRequests] = useState([{
     requestId: 1,
-    title: 'Help',
+    title: 'Help me here',
     description: 'Please help',
     timeNeeded: '15 minutes',
     location: { lat: 1.3053013, lng: 103.7716153 }
+  }, {
+    requestId: 2,
+    title: 'Help me there',
+    description: 'Pretty please',
+    timeNeeded: '5 minutes',
+    location: { lat: 1.3063043, lng: 103.7701211}
   }]);
 
   //handlers
