@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PopUpCard from "../../AssistantFeatures/PopUpCard/PopUpCard";
 import "./RequestModal.css";
 import CloseModal from "../../AssistantFeatures/CloseModal/CloseModal";
@@ -16,8 +16,8 @@ const SingleField = (props) => {
 };
 
 const RequestModal = (props) => {
-  const [latValue, setLatValue] = useState(null);
-  const [lngValue, setLngValue] = useState(null);
+  const [latValue, setLatValue] = useState([]);
+  const [lngValue, setLngValue] = useState([]);
   const [activeElementTypeTime, setActiveElementTypeTime] =
     useState("dropdown");
   const [activeElementTypeLoc, setActiveElementTypeLoc] = useState("dropdown");
@@ -74,9 +74,9 @@ const RequestModal = (props) => {
   };
 
   getLocation();
-  var locationValue = { lat: latValue, lng: lngValue };
+  var locationValue = { lat: latValue[0], lng: lngValue[0] };
 
-  async function requestSubmit(event) {
+  function requestSubmit(event) {
     event.preventDefault();
     if (event.target[3].value !== "current") {
       geocode(event.target[3].value, (error, { latitude, longitude } = {}) => {
@@ -85,26 +85,21 @@ const RequestModal = (props) => {
           setLatValue(1.3062703);
           setLngValue(103.771012);
         } else {
-          setLatValue((latValue) => latitude);
-          setLngValue((lngValue) => longitude);
+          setLatValue((prev) => [...prev, latitude]);
+          setLngValue((prev) => [...prev, longitude]);
         }
-        locationValue = { lat: latValue, lng: lngValue };
-        console.log(locationValue);
       });
-      setTimeout(() => {
-        locationValue = { lat: latValue, lng: lngValue };
-        const request = {
-          requestId: Math.floor(Math.random() * 100),
-          title: event.target[0].value,
-          description: event.target[1].value,
-          timeNeeded: event.target[2].value,
-          location: locationValue,
-        };
-        console.log(request);
-        props.setHelpRequests((prevState) => [...prevState, request]);
-      }, 5000);
-      // geocode(event.target[3].value, () => {});
-      // locationValue = event.target[3].value;
+
+      locationValue = { lat: latValue, lng: lngValue };
+      const request = {
+        requestId: Math.floor(Math.random() * 100),
+        title: event.target[0].value,
+        description: event.target[1].value,
+        timeNeeded: event.target[2].value,
+        location: locationValue,
+      };
+      console.log(request);
+      props.setHelpRequests((prevState) => [...prevState, request]);
     }
   }
 
