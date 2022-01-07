@@ -4,8 +4,7 @@ import "./RequestModal.css";
 import CloseModal from "../../AssistantFeatures/CloseModal/CloseModal";
 import GeneralButton from "../../AssistantFeatures/GeneralButton/GeneralButton";
 
-const geocode = require('../../utils/geocode');
-
+// const geocode = require("../../../utils/geocode.js");
 
 const SingleField = (props) => {
   return (
@@ -17,18 +16,11 @@ const SingleField = (props) => {
 };
 
 const RequestModal = (props) => {
-  const [timeValue, setTimeValue] = useState("5 Minutes");
   const [latValue, setLatValue] = useState(null);
   const [lngValue, setLngValue] = useState(null);
-  const [locationState, setLocationState] = useState("");
-
-  const timeValueHandler = (event) => {
-    setTimeValue(event.target.value);
-  };
-
-  const locationValueHandler = (event) => {
-    setLocationState(event.target.value);
-  };
+  const [activeElementTypeTime, setActiveElementTypeTime] =
+    useState("dropdown");
+  const [activeElementTypeLoc, setActiveElementTypeLoc] = useState("dropdown");
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -37,18 +29,66 @@ const RequestModal = (props) => {
     });
   };
 
+  const dropdownTimeCustom = (e) => {
+    if (e.target.value === "custom") {
+      setActiveElementTypeTime("input");
+    }
+  };
+
+  const dropdownTimeComp = () => {
+    return (
+      <select
+        onChange={(e) => dropdownTimeCustom(e)}
+        className="time-required-dropdown"
+      >
+        <option value="5 Minutes">5 Minutes</option>
+        <option value="10 Minutes">10 Minutes</option>
+        <option value="15 Minutes">15 Minutes</option>
+        <option value="custom">Custom</option>
+      </select>
+    );
+  };
+
+  const dropdownLocCustom = (e) => {
+    if (e.target.value === "custom") {
+      setActiveElementTypeLoc("input");
+    } else if (e.target.value === "current") {
+      getLocation();
+    }
+  };
+
+  const dropdownLocComp = () => {
+    return (
+      <select
+        onChange={(e) => dropdownLocCustom(e)}
+        className="time-required-dropdown"
+      >
+        <option value="current">Use Current Location</option>
+        <option value="custom">Input Custom Location</option>
+      </select>
+    );
+  };
+
+  const inputFieldComp = () => {
+    return <input className="singleField-input" placeholder="Custom" />;
+  };
+
   getLocation();
-  const locationValue = { lat: latValue, lng: lngValue };
+  var locationValue = { lat: latValue, lng: lngValue };
 
   const requestSubmit = (event) => {
     event.preventDefault();
+    if (event.target[3].value !== "current") {
+      locationValue = event.target[3].value;
+    }
     const request = {
       requestId: Math.floor(Math.random() * 100),
       title: event.target[0].value,
       description: event.target[1].value,
       timeNeeded: event.target[2].value,
-      location: locationValue, //fix this to grab from event.target instead of hardcode
+      location: locationValue,
     };
+    console.log(request);
     props.setHelpRequests((prevState) => [...prevState, request]);
   };
 
@@ -59,52 +99,26 @@ const RequestModal = (props) => {
         <CloseModal onClick={props.hideRequestHandler} className="closemodal" />
       </header>
       <hr />
-      <form
-        className="request-content"
-        // onSubmit={requestSubmit & props.hideRequestHandler}
-        onSubmit={requestSubmit}
-      >
+      <form className="request-content" onSubmit={requestSubmit}>
         <SingleField subheader="Title" />
         <SingleField subheader="Description" />
         <div className="singleField">
           <header className="singleField-subheader">Time Required</header>
-          <select
-            value={timeValue}
-            className="time-required-dropdown"
-            onChange={timeValueHandler}
-          >
-            <option value="5 minutes">5 Minutes</option>
-            <option value="10 minutes">10 Minutes</option>
-            <option value="15 minutes">15 Minutes</option>
-            <option value="20 minutes">20 Minutes</option>
-            <option value="30 minutes">30 Minutes</option>
-          </select>
-          <input
-            className="singleField-input time-input"
-            placeholder="Custom"
-            onChange={timeValueHandler}
-          />
+          {activeElementTypeTime === "dropdown"
+            ? dropdownTimeComp()
+            : inputFieldComp()}
         </div>
         <div className="singleField">
           <header className="singleField-subheader">Location</header>
-          <select
-            value={locationState}
-            onChange={locationValueHandler}
-            className="location-dropdown"
-          >
-            <option value={locationState}>Use Current Location</option>
-            <option value={locationState}>Input Custom Location</option>
-          </select>
-          <input
-            className="singleField-input time-input"
-            placeholder="Custom"
-            onChange={locationValueHandler}
-          />
+          {activeElementTypeLoc === "dropdown"
+            ? dropdownLocComp()
+            : inputFieldComp()}
         </div>
         <GeneralButton
           buttonTitle="Post"
           className="post-button"
           type="submit"
+          // onClick={props.hideRequestHandler}
         />
       </form>
       <br />
