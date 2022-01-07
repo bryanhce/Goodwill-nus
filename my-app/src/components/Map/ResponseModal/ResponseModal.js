@@ -2,9 +2,16 @@ import React from "react";
 import "./ResponseModal.css";
 import PopUpCard from "../../AssistantFeatures/PopUpCard/PopUpCard";
 import CloseModal from "../../AssistantFeatures/CloseModal/CloseModal";
+import GeneralButton from "../../AssistantFeatures/GeneralButton/GeneralButton";
 import img from "../../../images/thorr.jpeg";
 
 const ResponseModal = (props) => {
+  const acceptHandler = () => {
+    props.request.isAccepted = !props.isAccepted;
+    props.hideResponseHandler();
+    props.removeAcceptedHandler();
+  };
+
   return (
     <PopUpCard className="response-popup">
       <header className="response-header">
@@ -34,6 +41,11 @@ const ResponseModal = (props) => {
             />
           </div>
           <p className="issuer-name">Chris</p>
+          <GeneralButton
+            buttonTitle="Accept"
+            className="accept-button"
+            onClick={acceptHandler}
+          />
         </div>
       </div>
     </PopUpCard>

@@ -85,8 +85,8 @@ const RequestModal = (props) => {
           setLatValue(1.3062703);
           setLngValue(103.771012);
         } else {
-          setLatValue(latValue => latitude);
-          setLngValue(lngValue => longitude);
+          setLatValue((latValue) => latitude);
+          setLngValue((lngValue) => longitude);
         }
         locationValue = { lat: latValue, lng: lngValue };
         console.log(locationValue);
@@ -137,8 +137,6 @@ const RequestModal = (props) => {
           // onClick={props.hideRequestHandler}
         />
       </form>
-      <br />
-      <br />
     </PopUpCard>
   );
 };
