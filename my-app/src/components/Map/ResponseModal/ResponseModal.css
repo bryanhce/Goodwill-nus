@@ -1,0 +1,36 @@
+.progress-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  
+    position: fixed;
+    top: 20vh;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    height: 70%;
+    z-index: 101;
+    overflow: scroll;
+  }
+  
+  .progress-header {
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .closemodal {
+    font-size: 2.5rem;
+    position: absolute;
+    right: 5%;
+    padding-top: 0.5rem;
+  }
+  
+  .progress-popup hr {
+    width: 60%;
+    margin-top: 0;
+  }
