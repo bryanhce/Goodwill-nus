@@ -4,7 +4,7 @@ import "./RequestModal.css";
 import CloseModal from "../../AssistantFeatures/CloseModal/CloseModal";
 import GeneralButton from "../../AssistantFeatures/GeneralButton/GeneralButton";
 
-// const geocode = require("../../../utils/geocode.js");
+import geocode from "../../../utils/geocode.js";
 
 const SingleField = (props) => {
   return (
@@ -76,21 +76,37 @@ const RequestModal = (props) => {
   getLocation();
   var locationValue = { lat: latValue, lng: lngValue };
 
-  const requestSubmit = (event) => {
+  async function requestSubmit(event) {
     event.preventDefault();
     if (event.target[3].value !== "current") {
-      locationValue = event.target[3].value;
+      geocode(event.target[3].value, (error, { latitude, longitude } = {}) => {
+        if (error) {
+          //set to utown if error
+          setLatValue(1.3062703);
+          setLngValue(103.771012);
+        } else {
+          setLatValue(latValue => latitude);
+          setLngValue(lngValue => longitude);
+        }
+        locationValue = { lat: latValue, lng: lngValue };
+        console.log(locationValue);
+      });
+      setTimeout(() => {
+        locationValue = { lat: latValue, lng: lngValue };
+        const request = {
+          requestId: Math.floor(Math.random() * 100),
+          title: event.target[0].value,
+          description: event.target[1].value,
+          timeNeeded: event.target[2].value,
+          location: locationValue,
+        };
+        console.log(request);
+        props.setHelpRequests((prevState) => [...prevState, request]);
+      }, 5000);
+      // geocode(event.target[3].value, () => {});
+      // locationValue = event.target[3].value;
     }
-    const request = {
-      requestId: Math.floor(Math.random() * 100),
-      title: event.target[0].value,
-      description: event.target[1].value,
-      timeNeeded: event.target[2].value,
-      location: locationValue,
-    };
-    console.log(request);
-    props.setHelpRequests((prevState) => [...prevState, request]);
-  };
+  }
 
   return (
     <PopUpCard className="request-popup">
