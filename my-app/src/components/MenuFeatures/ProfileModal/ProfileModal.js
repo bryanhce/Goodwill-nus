@@ -15,8 +15,8 @@ const ProgressModal = (props) => {
   });
 
   return (
-    <PopUpCard className="progress-popup">
-      <header className="progress-header">
+    <PopUpCard className="profile-popup">
+      <header className="profile-header">
         <h2>Profile</h2>
         <CloseModal onClick={props.hideProfileHandler} className="closemodal" />
       </header>

@@ -1,4 +1,4 @@
-.progress-popup {
+.profile-popup {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@
   overflow: scroll;
 }
 
-.progress-header {
+.profile-header {
   font-family: "Open Sans", sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
