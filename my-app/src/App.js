@@ -27,6 +27,7 @@ const App = () => {
       description: "Please help",
       timeNeeded: "15 minutes",
       location: { lat: 1.3053013, lng: 103.7716153 },
+      isAccepted: false
     },
     {
       requestId: 2,
@@ -34,6 +35,7 @@ const App = () => {
       description: "Pretty please",
       timeNeeded: "5 minutes",
       location: { lat: 1.3063043, lng: 103.7701211 },
+      isAccepted: false
     },
   ]);
 

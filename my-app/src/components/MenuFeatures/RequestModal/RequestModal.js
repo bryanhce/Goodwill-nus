@@ -4,6 +4,9 @@ import "./RequestModal.css";
 import CloseModal from "../../AssistantFeatures/CloseModal/CloseModal";
 import GeneralButton from "../../AssistantFeatures/GeneralButton/GeneralButton";
 
+const geocode = require('../../utils/geocode');
+
+
 const SingleField = (props) => {
   return (
     <div className={`singleField ${props.ClassName}`}>
@@ -92,6 +95,11 @@ const RequestModal = (props) => {
             <option value={locationState}>Use Current Location</option>
             <option value={locationState}>Input Custom Location</option>
           </select>
+          <input
+            className="singleField-input time-input"
+            placeholder="Custom"
+            onChange={locationValueHandler}
+          />
         </div>
         <GeneralButton
           buttonTitle="Post"
