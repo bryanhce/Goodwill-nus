@@ -1,6 +1,10 @@
 # Goodwill-nus
 
-An app to extend (or receive) a helping hand!
+View Web application - https://bryanhce.github.io/Goodwill-nus/
+
+When you start with Good, the Good goes around.
+This web application makes extending a helping hand or receiving help a walk in the park. 
+Making Singapore a kinder place starts with us.
 
 A platform for making and accepting help requests to connect with fellow students.
 
